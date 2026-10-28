@@ -1,8 +1,78 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfcfe;
-  --foreground: #142033;
+  --background: #ffffff;
+  --foreground: #09090b;
+  --card-bg: #ffffff;
+  --card-border: #e4e4e7;
+  --card-hover-border: #a1a1aa;
+  --sidebar-bg: #f8f8f8;
+  --header-bg: rgba(255, 255, 255, 0.85);
+  --muted-text: #52525b;
+  --subtle-text: #71717a;
+  --border-color: #e4e4e7;
+  --border-subtle: #f4f4f5;
+  --code-bg: #121214;
+  --code-fg: #f4f4f5;
+  --code-border: #27272a;
+  --inline-code-bg: #f4f4f5;
+  --inline-code-fg: #09090b;
+  --inline-code-border: #e4e4e7;
+  --accent: #000000;
+  --accent-contrast: #ffffff;
+  --accent-hover: #27272a;
+  --accent-subtle: #f4f4f5;
+  --accent-border: #d4d4d8;
+  --table-header-bg: #f4f4f5;
+  --table-row-hover: #fafafa;
+  --callout-note-bg: #f4f4f5;
+  --callout-note-border: #d4d4d8;
+  --callout-tip-bg: #f8f8f8;
+  --callout-tip-border: #d4d4d8;
+  --callout-warning-bg: #f4f4f5;
+  --callout-warning-border: #a1a1aa;
+  --callout-caution-bg: #efefef;
+  --callout-caution-border: #71717a;
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"],
+.dark {
+  --background: #000000;
+  --foreground: #fafafa;
+  --card-bg: #09090b;
+  --card-border: #27272a;
+  --card-hover-border: #52525b;
+  --sidebar-bg: #050507;
+  --header-bg: rgba(0, 0, 0, 0.85);
+  --muted-text: #a1a1aa;
+  --subtle-text: #71717a;
+  --border-color: #27272a;
+  --border-subtle: #18181b;
+  --code-bg: #09090b;
+  --code-fg: #fafafa;
+  --code-border: #27272a;
+  --inline-code-bg: #18181b;
+  --inline-code-fg: #fafafa;
+  --inline-code-border: #27272a;
+  --accent: #ffffff;
+  --accent-contrast: #000000;
+  --accent-hover: #d4d4d8;
+  --accent-subtle: #18181b;
+  --accent-border: #3f3f46;
+  --table-header-bg: #121214;
+  --table-row-hover: #18181b;
+  --callout-note-bg: #121214;
+  --callout-note-border: #27272a;
+  --callout-tip-bg: #101012;
+  --callout-tip-border: #27272a;
+  --callout-warning-bg: #18181b;
+  --callout-warning-border: #52525b;
+  --callout-caution-bg: #1f1f23;
+  --callout-caution-border: #71717a;
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.8);
 }
 
 @theme inline {
@@ -18,16 +88,37 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light dark;
 }
 
 body {
   margin: 0;
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 ::selection {
-  background: #dce8ff;
-  color: #143b87;
+  background: var(--foreground);
+  color: var(--background);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--subtle-text);
 }

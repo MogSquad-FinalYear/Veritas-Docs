@@ -15,18 +15,49 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     default: "Veritas Documentation",
-    template: "%s · Veritas",
+    template: "%s · Veritas Documentation",
   },
-  description: "Build with confidence using Veritas.",
+  description: "Official developer documentation for Veritas — AI Imagery Detection, VideoRAG multimodal forensic analysis, and Nyaya Indian legal RAG.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('veritas-theme');
+                  var pref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  var theme = saved || pref;
+                  document.documentElement.setAttribute('data-theme', theme);
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-[var(--foreground)] selection:text-[var(--background)]">
+        {children}
+      </body>
     </html>
   );
 }
