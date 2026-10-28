@@ -20,9 +20,9 @@ export default function Home() {
           <div className="pointer-events-none absolute -left-28 top-40 h-[380px] w-[380px] rounded-full bg-zinc-400/5 dark:bg-zinc-600/5 blur-3xl" />
 
           <div className="relative mx-auto max-w-[860px] text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--sidebar-bg)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--foreground)] mb-6">
+            {/* <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-color)] bg-[var(--sidebar-bg)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--foreground)] mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-[var(--foreground)]" /> Official Developer Documentation
-            </div>
+            </div> */}
 
             <h1 className="text-[clamp(2.5rem,5.5vw,4.5rem)] font-extrabold leading-[1.08] tracking-[-0.04em] text-[var(--foreground)]">
               Veritas Documentation
